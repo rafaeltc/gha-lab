@@ -1,0 +1,18 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Dispatcher
+
+# Controls when the workflow will run
+on:
+  repository_dispatch:
+    types: [apply, destroy]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  handle-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo the payload
+        run: |
+          echo "Event type: ${{ github.event.action }}"
+          echo "Payload value: ${{ github.event.client_payload }}"
