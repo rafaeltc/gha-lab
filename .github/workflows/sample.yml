@@ -23,6 +23,9 @@ on:
               Who to greet
           required: true
           default: ${{ github.repository }}
+  repository_dispatch:
+    types: [apply, destroy]
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
