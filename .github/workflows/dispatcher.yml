@@ -16,3 +16,9 @@ jobs:
         run: |
           echo "Event type: ${{ github.event.action }}"
           echo "Payload value: ${{ toJSON(github.event.client_payload) }}"
+      - name: apply changes
+        if: github.event.type == "apply"
+        run: echo "====== Applying Changes! ========"
+      - name: destroying changes
+        if: github.event.type == "destroy"
+        run: echo "====== Destroying Changes! ========"
